@@ -1,0 +1,1672 @@
+{
+	"info": {
+		"_postman_id": "2ce924a3-c993-4f15-9cf8-4a9992ae600f",
+		"name": "Cisco Secure Workload GianlucaUlivi Example",
+		"description": "[https://www.cisco.com/c/en/us/td/docs/security/workload_security/secure_workload/user-guide/3_9/cisco-secure-workload-user-guide-saas-v39/openapi.html](https://www.cisco.com/c/en/us/td/docs/security/workload_security/secure_workload/user-guide/3_9/cisco-secure-workload-user-guide-saas-v39/openapi.html)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5106025"
+	},
+	"item": [
+		{
+			"name": "Applications / Workspaces",
+			"item": [
+				{
+					"name": "Policy",
+					"item": [
+						{
+							"name": "List Policies",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{URL}}/openapi/v1/applications/:application_id/policies",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"openapi",
+										"v1",
+										"applications",
+										":application_id",
+										"policies"
+									],
+									"variable": [
+										{
+											"key": "application_id",
+											"value": "",
+											"description": "Workspace ID"
+										}
+									]
+								},
+								"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+							},
+							"response": []
+						},
+						{
+							"name": "Create Policy",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"version\": \"vx\",\r\n    \"rank\": \"DEFAULT\",\r\n    \"policy_action\": \"ALLOW\",\r\n    \"priority\": 100,\r\n    \"consumer_filter_id\": \"xxx\",\r\n    \"provider_filter_id\": \"xxx\",\r\n    \"l4_params\": [\r\n        {\r\n            \"proto\": 6,\r\n            \"port\": [\r\n                80,\r\n                80\r\n            ],\r\n            \"approved\": true\r\n        },\r\n        {\r\n            \"proto\": 6,\r\n            \"port\": [\r\n                443,\r\n                443\r\n            ],\r\n            \"approved\": true\r\n        }\r\n    ]\r\n}"
+								},
+								"url": {
+									"raw": "https://{{URL}}/openapi/v1/applications/:application_id/policies",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"openapi",
+										"v1",
+										"applications",
+										":application_id",
+										"policies"
+									],
+									"variable": [
+										{
+											"key": "application_id",
+											"value": "",
+											"description": "Workspace ID"
+										}
+									]
+								},
+								"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "List Applications",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/applications",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"applications"
+							]
+						},
+						"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a single application",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/applications/:application_id",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"applications",
+								":application_id"
+							],
+							"variable": [
+								{
+									"key": "application_id",
+									"value": "",
+									"description": "Workspace ID"
+								}
+							]
+						},
+						"description": "This endpoint will return the requested application as a single JSON object.\n\nParameters: The request URL contains the following parameters:\n\n| Name           | Type   | Description                                | \n|----------------|--------|--------------------------------------------| \n| application_id | string | The unique identifier for the application. | \n\nResponse object: Returns the application object for the specified ID.\n\n**Sample python code**\n```\napplication_id = '5d02b493755f0237a3d6e078'\nrestclient.get('/applications/%s' % application_id)\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve application details",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/applications/:application_id/details",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"applications",
+								":application_id",
+								"details"
+							],
+							"variable": [
+								{
+									"key": "application_id",
+									"value": "",
+									"description": "Workspace ID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List application Versions",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/applications/:application_id/versions",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"applications",
+								":application_id",
+								"versions"
+							],
+							"variable": [
+								{
+									"key": "application_id",
+									"value": "",
+									"description": "Workspace ID"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Scopes",
+			"item": [
+				{
+					"name": "List Scopes",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/app_scopes",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"app_scopes"
+							],
+							"query": [
+								{
+									"key": "root_app_scope_id",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "vrf_id",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "exact_name",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "exact_short_name",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Alerts",
+			"item": [
+				{
+					"name": "List Alerts",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/alert_confs?root_app_scope_id=",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"alert_confs"
+							],
+							"query": [
+								{
+									"key": "root_app_scope_id",
+									"value": "",
+									"description": "Required"
+								}
+							]
+						},
+						"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+					},
+					"response": []
+				},
+				{
+					"name": "Get single Alert",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/alert_confs/:alert_id",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"alert_confs",
+								":alert_id"
+							],
+							"query": [
+								{
+									"key": "root_app_scope_id",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "alert_id",
+									"value": ""
+								}
+							]
+						},
+						"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Alert",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"__comment\": \"Application ID from List Applications\",\r\n    \"subjects\": {\r\n        \"type\": \"eq\",\r\n        \"field\": \"application_id\",\r\n        \"value\": \"6617f8a6755f0276ceb98aa5\"\r\n    },\r\n    \"rules\": {\r\n        \"type\": \"gt\",\r\n        \"field\": \"rejected_count\",\r\n        \"value\": 5\r\n    },\r\n    \"app_name\": \"compliance\",\r\n    \"severity\": \"Low\",\r\n    \"alert_type\": \"compliance\",\r\n    \"alert_name\": \"RPAS:Qual-Test_Rejected_Flows_maj_5\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/alert_confs?root_app_scope_id=",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"alert_confs"
+							],
+							"query": [
+								{
+									"key": "root_app_scope_id",
+									"value": ""
+								}
+							]
+						},
+						"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+					},
+					"response": [
+						{
+							"name": "Create Alert",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"__comment\": \"Application ID from List Applications\",\r\n    \"subjects\": {\r\n        \"type\": \"eq\",\r\n        \"field\": \"application_id\",\r\n        \"value\": \"6617f8a6755f0276ceb98aa5\"\r\n    },\r\n    \"rules\": {\r\n        \"type\": \"gt\",\r\n        \"field\": \"rejected_count\",\r\n        \"value\": 5\r\n    },\r\n    \"app_name\": \"compliance\",\r\n    \"severity\": \"Low\",\r\n    \"alert_type\": \"compliance\",\r\n    \"alert_name\": \"RPAS:Qual-Test_Rejected_Flows_maj_5\"\r\n}"
+								},
+								"url": {
+									"raw": "https://{{URL}}/openapi/v1/alert_confs?root_app_scope_id={{AppScopeID_VALENTINO}}",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"openapi",
+										"v1",
+										"alert_confs"
+									],
+									"query": [
+										{
+											"key": "root_app_scope_id",
+											"value": "{{AppScopeID_VALENTINO}}"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"subjects\": {\r\n        \"type\": \"eq\",\r\n        \"field\": \"application_id\",\r\n        \"value\": \"6617f8a6755f0276ceb98aa5\"\r\n    },\r\n    \"rules\": {\r\n        \"type\": \"gt\",\r\n        \"field\": \"rejected_count\",\r\n        \"value\": 5\r\n    },\r\n    \"app_name\": \"compliance\",\r\n    \"severity\": \"Low\",\r\n    \"alert_type\": \"compliance\",\r\n    \"alert_name\": \"RPAS:Qual-Test_Rejected_Flows_maj_5\"\r\n}"
+						}
+					]
+				}
+			],
+			"description": "[https://www.cisco.com/c/en/us/td/docs/security/workload_security/secure_workload/user-guide/3_9/cisco-secure-workload-user-guide-saas-v39/openapi.html#concept_e5y_cp3_bxb](https://www.cisco.com/c/en/us/td/docs/security/workload_security/secure_workload/user-guide/3_9/cisco-secure-workload-user-guide-saas-v39/openapi.html#concept_e5y_cp3_bxb)"
+		},
+		{
+			"name": "Inventory",
+			"item": [
+				{
+					"name": "Inventory search",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"filter\": {},\r\n    \"scopeName\": \"xx:yy:zz\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/inventory/search",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"inventory",
+								"search"
+							]
+						},
+						"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Inventory Filters",
+			"item": [
+				{
+					"name": "List Filters",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"console.log(\"Name,ID\")\r",
+									"for (let i = 0; i < response.length; i++) {\r",
+									"    console.log(response[i].name + \",\" + response[i].id)\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/filters/inventories",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"filters",
+								"inventories"
+							],
+							"query": [
+								{
+									"key": "root_app_scope_id",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "vrf_id",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Site IT",
+									"disabled": true
+								},
+								{
+									"key": "exact_name",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a single Filter",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/filters/inventories/:inventory_filter_id",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"filters",
+								"inventories",
+								":inventory_filter_id"
+							],
+							"query": [
+								{
+									"key": "root_app_scope_id",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "inventory_filter_id",
+									"value": ""
+								}
+							]
+						},
+						"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+					},
+					"response": []
+				},
+				{
+					"name": "Validate Filter Query",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"query\": {\r\n            \"type\": \"and\",\r\n            \"filters\": [\r\n                {\r\n                    \"field\": \"ip\",\r\n                    \"type\": \"eq\",\r\n                    \"value\": \"192.168.0.1\"\r\n                }\r\n            ]\r\n        }\r\n}"
+						},
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/filters/inventories/validate_query",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"filters",
+								"inventories",
+								"validate_query"
+							],
+							"query": [
+								{
+									"key": "root_app_scope_id",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Filter",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"xxx\",\r\n    \"app_scope_id\": \"xxx\",\r\n    \"query\": {\r\n            \"type\": \"and\",\r\n            \"filters\": [\r\n                {\r\n                    \"field\": \"ip\",\r\n                    \"type\": \"eq\",\r\n                    \"value\": \"192.168.0.1\"\r\n                }\r\n            ]\r\n        }\r\n}"
+						},
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/filters/inventories",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"filters",
+								"inventories"
+							],
+							"query": [
+								{
+									"key": "root_app_scope_id",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+					},
+					"response": [
+						{
+							"name": "Create Filter",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"TEST1\",\r\n    \"app_scope_id\": \"65729725497d4f73e39464ee\",\r\n    \"query\": {\r\n            \"type\": \"and\",\r\n            \"filters\": [\r\n                {\r\n                    \"field\": \"ip\",\r\n                    \"type\": \"eq\",\r\n                    \"value\": \"192.168.173.200\"\r\n                }\r\n            ]\r\n        }\r\n}"
+								},
+								"url": {
+									"raw": "https://{{URL}}/openapi/v1/filters/inventories?root_app_scope_id={{AppScopeID_VALENTINO}}",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"openapi",
+										"v1",
+										"filters",
+										"inventories"
+									],
+									"query": [
+										{
+											"key": "root_app_scope_id",
+											"value": "{{AppScopeID_VALENTINO}}"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"name\": \"FILTER NAME\",\r\n    \"app_scope_id\": \"65729725497d4f73e39464ee\",\r\n    \"query\": {\r\n            \"type\": \"and\",\r\n            \"filters\": [\r\n                {\r\n                    \"field\": \"ip\",\r\n                    \"type\": \"eq\",\r\n                    \"value\": \"1.1.1.1/32\"\r\n                }\r\n            ]\r\n        }\r\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Flows",
+			"item": [
+				{
+					"name": "Flow Count",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"t0\": \"1725182145\",\r\n    \"t1\": \"1725268545\",\r\n    \"scopeName\": \"xx:yy:zz\",\r\n    \"filter\": {}\r\n}"
+						},
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/flowsearch/count",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"flowsearch",
+								"count"
+							]
+						},
+						"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+					},
+					"response": []
+				},
+				{
+					"name": "Query Flows",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"t0\": \"1724761522\",\r\n    \"t1\": \"1724763322\",\r\n    \"scopeName\": \"xx:yy:zz\",\r\n    \"dimensions\": [\r\n        \"src_address\",\r\n        \"src_hostname\",\r\n        \"src_port\",\r\n        \"dst_address\",\r\n        \"dst_hostname\",\r\n        \"dst_port\",\r\n        \"fwd_drop_reason\",\r\n        \"rev_drop_reason\"\r\n    ],\r\n    \"metrics\": [\r\n        \"fwd_pkts\",\r\n        \"rev_pkts\",\r\n        \"fwd_bytes\",\r\n        \"rev_bytes\",\r\n        \"fwd_flow_duration\",\r\n        \"rev_flow_duration\"\r\n    ],\r\n    \"limit\": 5000,\r\n    \"filter\": {}\r\n}"
+						},
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/flowsearch",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"flowsearch"
+							],
+							"query": [
+								{
+									"key": "root_app_scope_id",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+					},
+					"response": []
+				},
+				{
+					"name": "Query Flows offset",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"t0\": \"1724754629\",\r\n    \"t1\": \"1724765429\",\r\n    \"scopeName\": \"xx:yy:zz\",\r\n    \"dimensions\": [\r\n        \"src_address\",\r\n        \"src_hostname\",\r\n        \"src_port\",\r\n        \"dst_address\",\r\n        \"dst_hostname\",\r\n        \"dst_port\",\r\n        \"fwd_drop_reason\",\r\n        \"rev_drop_reason\"\r\n    ],\r\n    \"metrics\": [\r\n        \"fwd_pkts\",\r\n        \"rev_pkts\",\r\n        \"fwd_bytes\",\r\n        \"rev_bytes\",\r\n        \"fwd_flow_duration\",\r\n        \"rev_flow_duration\"\r\n    ],\r\n    \"limit\": 5000,\r\n    \"offset\": \"xxxx\",\r\n    \"filter\": {}\r\n}"
+						},
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/flowsearch",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"flowsearch"
+							],
+							"query": [
+								{
+									"key": "root_app_scope_id",
+									"value": "{{AppScopeID_VALENTINO}}",
+									"disabled": true
+								}
+							]
+						},
+						"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+					},
+					"response": []
+				},
+				{
+					"name": "Query Flows with Filter",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"t0\": \"1729083600\",\r\n    \"t1\": \"1729170000\",\r\n    \"scopeName\": \"xx:yy:zz\",\r\n    \"dimensions\": [\r\n        \"src_address\",\r\n        \"src_hostname\",\r\n        \"src_port\",\r\n        \"dst_address\",\r\n        \"dst_hostname\",\r\n        \"dst_port\",\r\n        \"fwd_drop_reason\",\r\n        \"rev_drop_reason\"\r\n    ],\r\n    \"metrics\": [\r\n        \"fwd_pkts\",\r\n        \"rev_pkts\",\r\n        \"fwd_bytes\",\r\n        \"rev_bytes\",\r\n        \"fwd_flow_duration\",\r\n        \"rev_flow_duration\"\r\n    ],\r\n    \"filter\": {\r\n            \"type\": \"eq\",\r\n            \"field\": \"dst_address\",\r\n            \"value\": \"192.168.0.1\"\r\n        }\r\n}"
+						},
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/flowsearch",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"flowsearch"
+							],
+							"query": [
+								{
+									"key": "root_app_scope_id",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+					},
+					"response": []
+				},
+				{
+					"name": "Query Flows full",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"t0\": \"1724659200\",\r\n    \"t1\": \"1724666400\",\r\n    \"scopeName\": \"xx:yy:zz\",\r\n    \"limit\": 100,\r\n    \"filter\": {}\r\n}"
+						},
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/flowsearch",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"flowsearch"
+							],
+							"query": [
+								{
+									"key": "root_app_scope_id",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+					},
+					"response": []
+				},
+				{
+					"name": "Query Flow Metrics",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/flowsearch/metrics",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"flowsearch",
+								"metrics"
+							],
+							"query": [
+								{
+									"key": "root_app_scope_id",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+					},
+					"response": []
+				},
+				{
+					"name": "Query Flow Dimensions",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/flowsearch/dimensions",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"flowsearch",
+								"dimensions"
+							],
+							"query": [
+								{
+									"key": "root_app_scope_id",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Agents",
+			"item": [
+				{
+					"name": "List Software Agents",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/sensors",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"sensors"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "offset",
+									"value": null,
+									"disabled": true
+								}
+							]
+						},
+						"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+					},
+					"response": []
+				},
+				{
+					"name": "Get specific Software Agent",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/sensors/:agent_uuid",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"sensors",
+								":agent_uuid"
+							],
+							"variable": [
+								{
+									"key": "agent_uuid",
+									"value": ""
+								}
+							]
+						},
+						"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Labels",
+			"item": [
+				{
+					"name": "DANGER - DELETE",
+					"item": [
+						{
+							"name": "Delete Labels - DANGER",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ip\": \"192.168.0.1/32\"\r\n}"
+								},
+								"url": {
+									"raw": "https://{{URL}}/openapi/v1/inventory/tags/:rootAppScopeName",
+									"protocol": "https",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"openapi",
+										"v1",
+										"inventory",
+										"tags",
+										":rootAppScopeName"
+									],
+									"variable": [
+										{
+											"key": "rootAppScopeName",
+											"value": ""
+										}
+									]
+								},
+								"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get Label",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/inventory/tags/VALENTINO?ip=192.168.0.1/32",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"inventory",
+								"tags",
+								"VALENTINO"
+							],
+							"query": [
+								{
+									"key": "ip",
+									"value": "192.168.0.1/32"
+								}
+							]
+						},
+						"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Other",
+			"item": [
+				{
+					"name": "List Malicious IPs",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{URL}}/openapi/v1/malicious_ips",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"openapi",
+								"v1",
+								"malicious_ips"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "offset",
+									"value": null,
+									"disabled": true
+								}
+							]
+						},
+						"description": "This endpoint will return an array of applications that are visible to the users.\n\nParameters: None\n\nResponse object: Returns an array of application objects."
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"//Generate a UTC Timestamp with the Tetration expected format that can be used in the request header\r",
+					"function pad(n) {\r",
+					"     return (n < 10) ? '0' + n : n;\r",
+					"}\r",
+					"\r",
+					"var now = new Date();\r",
+					"var month = now.getUTCMonth() + 1\r",
+					"var timestamp = now.getUTCFullYear()+'-'+pad(month)+'-'+pad(now.getUTCDate())+'T'+pad(now.getUTCHours())+':'+pad(now.getUTCMinutes())+':'+pad(now.getUTCSeconds())+'+0000';\r",
+					"\r",
+					"//Calculate the body checksum if it is a POST or PUT request\r",
+					"var checksum = '';\r",
+					"if (pm.request.method == 'POST' || pm.request.method == 'PUT' || pm.request.method == \"DELETE\") {\r",
+					"    //Updated from the original request.data to include variables values\r",
+					"    //checksum = CryptoJS.SHA256(request.data)\r",
+					"    data_and_vars = pm.variables.replaceIn(request.data)\r",
+					"    console.log(data_and_vars)\r",
+					"    checksum = CryptoJS.SHA256(data_and_vars)\r",
+					"    checksum = CryptoJS.enc.Hex.stringify(checksum)\r",
+					"}\r",
+					"\r",
+					"//Calculate the Digest which is generated based on the timestamp, checksum, additional header parameters, and the secret key\r",
+					"//Updated from the original request.url.split('/openapi/v1/')[1]) to include variable parameters values\r",
+					"//var signer = request.method + '\\n/openapi/v1/' + request.url.split('/openapi/v1/')[1]) + '\\n' + checksum + '\\napplication/json\\n' + timestamp + '\\n';\r",
+					"encoded_url_and_params = encodeURI(pm.variables.replaceIn(pm.request.url.toString().split('/openapi/v1/')[1]))\r",
+					"var signer = request.method + '\\n/openapi/v1/' + encoded_url_and_params + '\\n' + checksum + '\\napplication/json\\n' + timestamp + '\\n';\r",
+					"console.log(encoded_url_and_params)\r",
+					"\r",
+					"//Updated from original pm.environment.get('API_SECRET') to allow to fetch the variable from either the current env or the global env\r",
+					"//var digestauth = CryptoJS.HmacSHA256(signer, pm.environment.get('API_SECRET'));\r",
+					"var digestauth = CryptoJS.HmacSHA256(signer, pm.variables.get('API_SECRET'));\r",
+					"digestauth = CryptoJS.enc.Base64.stringify(digestauth);\r",
+					"\r",
+					"//Add headers to request\r",
+					"//Updated from original pm.environment.get('API_SECRET') to allow to fetch the variable from either the current env or the global env\r",
+					"//pm.request.headers.add( { key: 'Id', value: pm.environment.get('API_KEY') } );\r",
+					"pm.request.headers.add( { key: 'Id', value: pm.variables.get('API_KEY') } );\r",
+					"pm.request.headers.add( { key: 'Authorization', value: digestauth } );\r",
+					"pm.request.headers.add( { key: 'Timestamp', value: timestamp } );\r",
+					"if (request.method == 'POST' || request.method == 'PUT') {\r",
+					"    pm.request.headers.add( { key: 'X-Tetration-Cksum', value: checksum } );\r",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
